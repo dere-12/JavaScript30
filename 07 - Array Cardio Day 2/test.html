@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const arr = [1, 2, "z", 15, "a", 6, 20, 6];
+      // const arr2 = ["apple", "kiwi", "mango", "banana"];
+      // console.log(
+      //   arr.sort((a, b) => {
+      //     if (a > b) {
+      //       return 1;
+      //     } else {
+      //       return -1;
+      //     }
+      //   })
+      // );
+      // console.log(arr2.sort());
+
+      function camelize(str) {
+        return str
+          .split("-")
+          .map((item, index) =>
+            index === 0 ? item : item.slice(0, 1).toUpperCase() + item.slice(1)
+          )
+          .join("");
+      }
+      // console.log(camelize("camel-case-syntax"));
+      const arr = [1, 2, 12, 9, 3, 2, 4, 20, 5, 1, 20, 6, 7, 9, 8];
+
+      function filterRange(arr, a, b) {
+        return arr.filter((item) => item >= a && item <= b);
+      }
+      // console.log(filterRange(arr, 10, 20));
+      // console.log(arr);
+
+      function filterRangeInPlace(arr, a, b) {
+        for (let i = 0; i < arr.length; i++) {
+          if (!(arr[i] >= a && arr[i] <= b)) {
+            arr.splice(i, 1);
+            i--;
+          }
+        }
+        console.log(arr);
+      }
+      // console.log(filterRangeInPlace(arr, 9, 20));
+      // console.log(arr);
+
+      const strArr = ["typescript", "zes", "js", "css", "html"];
+      function copySorted(arr) {
+        const copy = arr.slice();
+        return copy.sort();
+      }
+      // console.log(copySorted(strArr));
+      // console.log(strArr);
+
+      let users = [
+        { name: "John", age: 25 },
+        { name: "Pete", age: 30 },
+        { name: "Mary", age: 29 },
+      ];
+      // const user = users.map((item) => item.name);
+      // console.log(user);
+      function sortByAge(users) {
+        return users.sort((user_A, user_B) => {
+          if (user_A.age > user_B.age) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
+      }
+      // console.log(sortByAge(users));
+
+      function getAverageAge(users) {
+        const sum = users.reduce((total, user) => total + user.age, 0);
+        const N = users.length;
+        return sum / N;
+      }
+      // console.log(getAverageAge(users));
+
+      const students = [
+        { name: "John", surname: "Smith", id: 1 },
+        { name: "Pete", surname: "Hunt", id: 2 },
+        { name: "Mary", surname: "Key", id: 3 },
+      ];
+      const studentsFullName = students.map((student) => ({
+        fullName: `${student.name} ${student.surname}`,
+        id: `${student.id}`,
+      }));
+      // console.log(studentsFullName);
+
+      const randomArray = [
+        "Hare",
+        "Krishna",
+        "Hare",
+        "Krishna",
+        "Krishna",
+        "Krishna",
+        "Hare",
+        "Hare",
+        ":-O",
+      ];
+      function uniqueMember(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (!result.includes(arr[i])) {
+            result.push(arr[i]);
+          }
+        }
+        return result;
+      }
+      // console.log(uniqueMember(randomArray));
+    </script>
+  </body>
+</html>
